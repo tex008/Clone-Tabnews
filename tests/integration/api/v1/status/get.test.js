@@ -11,8 +11,6 @@ describe("test the status route", () => {
     const parsedUpdatedAt = new Date(responseBody.updated_at).toISOString();
     expect(parsedUpdatedAt).toEqual(responseBody.updated_at);
     expect(responseBody.dependencies.database.version).toEqual("16.1");
-    expect(responseBody.dependencies.database.opened_connections)
-      // o teste em si está gerando uma nova conexao no banco, porque ainda nao está mockado. Por isso less than or equal 2.
-      .toBeLessThanOrEqual(2);
+    expect(responseBody.dependencies.database.opened_connections).toBeEqual(1);
   });
 });
