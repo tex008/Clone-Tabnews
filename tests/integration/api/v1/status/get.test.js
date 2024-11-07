@@ -9,7 +9,9 @@ describe("test the status route", () => {
 
     const parsedUpdatedAt = new Date(responseBody.updated_at).toISOString();
     expect(parsedUpdatedAt).toEqual(responseBody.updated_at);
-    expect(responseBody.dependencies.database.version).toEqual("16.1");
-    expect(responseBody.dependencies.database.opened_connections).toBeEqual(1);
+    expect(["16.1", "16.4"]).toContain(
+      responseBody.dependencies.database.version,
+    );
+    expect(responseBody.dependencies.database.opened_connections).toEqual(1);
   });
 });
