@@ -6,7 +6,6 @@ describe("test the status route", () => {
     expect(response.status).toBe(200);
 
     const responseBody = await response.json();
-    console.log("responseBody:", responseBody);
 
     const parsedUpdatedAt = new Date(responseBody.updated_at).toISOString();
     expect(parsedUpdatedAt).toEqual(responseBody.updated_at);
