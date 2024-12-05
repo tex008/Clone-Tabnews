@@ -18,7 +18,7 @@
     "services:stop": "docker compose -f infra/compose.yaml stop",
     "services:wait:database": "node infra/scripts/wait-for-postgres.js",
     "test": "npm run services:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
-    "test:watch": "jest --watchAll --runInBand"
+    "test:watch": "jest --watchAll --runInBand --verbose"
   },
   "author": "",
   "license": "MIT",
