@@ -6,7 +6,7 @@
   "scripts": {
     "commit": "cz",
     "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev",
-    "lint:eslint:check": "next lint --dir .",
+    "lint:eslint:check": "eslint .",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
     "migrations:create": "node-pg-migrate --migrations-dir infra/migrations create",
@@ -36,10 +36,11 @@
   "devDependencies": {
     "@commitlint/cli": "19.6.0",
     "@commitlint/config-conventional": "19.6.0",
+    "@eslint/js": "^9.39.5",
     "commitizen": "^4.3.2",
     "concurrently": "9.1.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.57.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.4",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jest": "28.9.0",
