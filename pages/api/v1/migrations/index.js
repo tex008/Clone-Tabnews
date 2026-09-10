@@ -1,5 +1,5 @@
 import database from "infra/database.js";
-import migrationRunner from "node-pg-migrate";
+import { runner as migrationRunner } from "node-pg-migrate";
 import { resolve } from "node:path";
 
 export default async function migrations(request, response) {
@@ -45,6 +45,7 @@ export default async function migrations(request, response) {
     }
   } catch (error) {
     console.error(error);
+    return response.status(500).json({ error: "Internal Server Error" });
   } finally {
     await dbClient.end();
   }
